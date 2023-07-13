@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule,Routes } from '@angular/router';
+import { ComponentsModule } from '../components/component.module';
 
 @NgModule({
   declarations: [
@@ -9,6 +10,7 @@ import { RouterModule,Routes } from '@angular/router';
   imports: [
     RouterModule,
     CommonModule,
+    ComponentsModule
   ],
   exports: [
   ]

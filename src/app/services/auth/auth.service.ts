@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { storage } from '@core/utils';
-import { BaseService } from '@services/api';
+import { storage } from 'src/app/core/utils';
+import { BaseService } from '../api';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
-import { queryNormalizer } from '@core/utils';
-
+import { queryNormalizer } from 'src/app/core/utils';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
