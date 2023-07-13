@@ -3,9 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  title: 'ValuSoft',
+  production: false,
+  apiUrl: 'http://api.valusoft.io:5002/api/v1',
+  debugLog: true,
+  errorToasts: true,
+  appVersion: 'v1.0.1',
+  USERDATA_KEY: 'authf649fc9a5f55',
+  SESSION_STORAGE_PREFIX: 'VALU_',
+  defaultTenant: 'root',
+  baseUrl: 'http://api-valusoft.belsio.online:5002/', // Add this line
 
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
