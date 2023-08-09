@@ -1,0 +1,132 @@
+<!-- <header class="sticky top-0 z-50">
+  <nav
+    class="flex lg:justify-between md:justify-between px-2 md:px-28  lg:px-28 py-3  items-center shadow-md bg-white"
+  >
+    <img src="../../../assets//icons/pma.png" width="24" alt="" />
+
+    <div class="breadcrumb" *ngIf="showBreadcrumb()">
+      <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+        {{ breadcrumb }} <span *ngIf="!last"> > </span>
+      </ng-container>
+    </div>
+
+    <div class="flex items-center">
+      <div
+        class="relative flex items-center bg-[#F9FAFA] rounded-lg h-10 md:mx-0 md:mr-4 lg:mx-0 lg:mr-4 mx-4"
+      >
+        <input
+          class="ml-2 pr-10 outline-none bg-transparent placeholder:text-[12px] border-none font-medium text-gray-600 placeholder-gray-400"
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search..."
+        />
+        <i
+          class="pi pi-search h-5 w-5 text-gray-600 absolute right-3 text-[12px] top-1/2 transform -translate-y-1/2"
+        ></i>
+      </div>
+      <ul class="flex items-center space-x-3 x lg:space-x-3">
+        <li>
+          <i class="pi pi-bell font-semibold text-xs"></i>
+        </li>
+        <span class="separator"></span>
+        <li>
+          <i class="pi pi-user font-semibold text-xs"></i>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header> -->
+
+<header
+  class="sticky top-0 z-50 lg:block hidden md:hidden"
+  clickOutside
+  (clickOutside)="clickedOutside()"
+>
+  <nav class="bg-white">
+    <div class="container mx-auto px-8">
+      <div class="flex items-center py-2">
+        <a class="text-black text-2xl font-bold">Logo Here</a>
+
+        <div class="flex items-center ms-20 space-x-4">
+          <!-- Icon container -->
+          <div class="border-r h-10"></div>
+          <!-- Vertical line separator -->
+
+
+          <a class="text-black">
+            <i class='bx bx-bell'></i>
+          </a>
+          <a class="text-black">
+            <i class="bx bx-share-alt"></i>
+          </a>
+          <a class="text-black">
+            <i class="bx bx-share-alt"></i>
+          </a>
+          <div class="border-r mx-4 h-10"></div>
+          <!-- Vertical line separator -->
+
+          <!-- Inline flex container for search icon and input -->
+          <div class="inline-flex items-center space-x-2">
+            <i class="bx bx-search text-black"></i>
+            <!-- Search icon -->
+            <input
+              type="text"
+              name=""
+              id=""
+              class="focus:outline-none"
+              placeholder="Type anywhere to search"
+            />
+          </div>
+        </div>
+
+        <div class="ml-auto flex items-center space-x-4">
+          <a class="text-black">
+            <!-- <i class="pi pi-user text-2xl"></i> -->
+            <button
+              (click)="toggleDropdown()"
+              class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              type="button"
+            >
+              <img
+                class="w-8 h-8 rounded-full"
+                src="/docs/images/people/profile-picture-3.jpg"
+                alt="user photo"
+              />
+            </button>
+
+            <!-- Dropdown menu -->
+            <div
+
+              id="dropdownAvatar"
+              class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+              [ngClass]="{ hidden: !isOpen }"
+
+            >
+              <div class="px-4 py-3 text-sm">
+                <div>Bonnie Green</div>
+                <div class="font-medium truncate">name@flowbite.com</div>
+              </div>
+              <ul class="py-2 text-sm">
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
+                </li>
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+                </li>
+                <li>
+                  <a class="block px-4 py-2 hover:bg-gray-100">Earnings</a>
+                </li>
+              </ul>
+              <div class="py-2">
+                <a class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Sign out</a
+                >
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

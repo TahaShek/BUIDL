@@ -1,0 +1,50 @@
+<div class="horizontalScroll">
+  <div class="flex">
+    <div class="flex">
+      <ng-container *ngFor="let tab of componentData; let index = index">
+        <div
+          class="px-2  py-2  w-48 flex text-center   cursor-pointer text-black  {{
+            activeTab === tab.title
+              ? 'border-b-2 border-blue-500 duration-300 bg-red-100'
+              : ''
+          }}"
+          (click)="setActiveTab(tab.title)"
+          [routerLink]="tab.routerLink"
+        >
+          <div>
+            <span><i class="{{ tab.src }}"></i></span>
+            <span class="mx-3 text-[16px]">{{ tab.title }}</span>
+          </div>
+          <div>
+            <span
+              class="ml-2 cursor-pointer"
+              *ngIf="componentData.length > 1 && tab.title !== 'Dashboard'"
+              (click)="closeTab(index)"
+              ><i class="bx bxs-x-square"></i
+            ></span>
+            <span class="ml-2 cursor-pointer" (click)="toggleBookmark(tab)"
+              ><i
+                [ngClass]="
+                  tab.bookmarked ? 'bx bxs-bookmark-star' : 'bx bx-bookmark'
+                "
+              ></i
+            ></span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div
+      class="flex items-center ml-auto mr-10"
+      *ngIf="items && items.length > 0"
+    >
+      <span class=""
+        ><i
+          class="bx bxs-bookmarks text-lg"
+          [matMenuTriggerFor]="panel.menu"
+        ></i
+      ></span>
+    </div>
+  </div>
+</div>
+
+<app-menu-panel #panel [items]="items"></app-menu-panel>

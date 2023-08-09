@@ -1,0 +1,12 @@
+<div class="mt-6">
+  <label [for]="label" class="block text-sm font-medium cursor-pointer text-gray-700">Email address</label>
+
+    <input
+    [id]="label"
+    [name]="label"
+    [type]="type"
+    [(ngModel)]="input"
+    (ngModelChange)="onchange($event)"
+    class="appearance-none block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 focus:outline-none sm:text-sm rounded-lg"
+  />
+</div>

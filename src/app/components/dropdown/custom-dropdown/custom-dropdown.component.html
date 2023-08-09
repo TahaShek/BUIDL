@@ -1,0 +1,13 @@
+<!-- custom-dropdown.component.html -->
+<p-dropdown
+  id="dropdownId"
+  [(ngModel)]="selectedvalue"
+  [options]="dropdownValues"
+  styleClass="w-[100%]"
+  dataKey="value"
+  optionLabel="label"
+  optionValue="value"
+  (onChange)="onSelectionChange($event)"
+  placeholder="Select an item"
+>
+</p-dropdown>

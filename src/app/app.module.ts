@@ -8,6 +8,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ThemeModule } from './theme/theme.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ComponentsModule } from './components/component.module';
+import { BreadcrumbService } from './services/global/breadcrumb.service';
+
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { ComponentsModule } from './components/component.module';
     }),
 
   ],
-  providers: [HttpParams],
+  providers: [HttpParams,BreadcrumbService],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 

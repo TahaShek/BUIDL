@@ -1,2 +1,26 @@
+<!--
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div class="flex flex-col lg:px-10 px-4 mt-4">
+  <app-dynamic-component [heading]="HeadingText" (fullSCreenWidth)="layoutWidth($event)" class="px-6"></app-dynamic-component>
+  <div class="flex overflow-hidden ">
+    <ng-container *ngIf="!layoutscreenWidth" class="flex-none w-32 h-32">
+      <app-sidebar class="m-3  px-6  app-sidebar "></app-sidebar>
+    </ng-container>
+    <div [ngClass]="layoutscreenWidth ?'max-w-screen-xl' :'max-w-screen-lg basis-4/5 '" class="grow p-4 mt-4 h-screen lg:rounded-none rounded-lg bg-white mx-auto router-content">
+      <router-outlet></router-outlet>
+    </div>
+</div>
+</div> -->
+<div class="app-container">
+  <app-sidebar class="app-sidebar"></app-sidebar>
+  <div class="app-content">
+    <app-navbar ></app-navbar>
+    <app-tab-bar ></app-tab-bar>
+    <div class="p-8">
+   <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+

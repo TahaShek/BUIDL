@@ -1,0 +1,22 @@
+.horizontalScroll {
+  max-width: 95vw;
+  width: 100% ;
+  height: max-content ;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.horizontalScroll::-webkit-scrollbar {
+  width: 12px !important;
+  height: 3px !important;
+}
+.horizontalScroll::-webkit-scrollbar-track {
+  // background: green;
+  border-radius: 5px;
+}
+.horizontalScroll::-webkit-scrollbar-thumb {
+  background-color: rgb(39, 39, 41);
+  border-radius: 14px;
+  width: 6px;
+//   // border: 3px solid $Primary;
+}
+//

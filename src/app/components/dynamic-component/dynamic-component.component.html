@@ -1,0 +1,17 @@
+<div class="flex justify-between ">
+  <div>
+    <span class="pi pi-align-justify mx-1 cursor-pointer" (click)="fullSCreen()"></span>
+    <span class="text-[24px] font-semibold pl-2">{{ heading }}</span>
+  </div>
+    <div class="flex ">
+      <button type="button" *ngFor="let button of buttons"
+        class="button-with-icon flex items-center gap-2 px-4 py-3 bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform mx-5">
+        <i class="{{ button.icon }} text-xl"></i>
+        <span>{{ button.text }}</span>
+      </button>
+    </div>
+  </div>
+
+
+
+

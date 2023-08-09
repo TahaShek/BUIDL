@@ -1,0 +1,15 @@
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #7272729d;
+  border-radius: 2px;
+}
+/* Center the icon content when the sidebar is closed */
+.w-14 .flex:not(.open) {
+  justify-content: center;
+}
+
+ul>li{
+  line-height: 24px   ;
+}

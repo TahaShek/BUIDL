@@ -1,0 +1,15 @@
+// td{
+// border: 1px solid black;
+// }
+
+
+
+
+.data-\[te-input-state-active\]\:bg-black\/5[data-te-input-state-active] {
+  background-color: rgb(0 0 0 / 0.05);
+  font-size: 12px !important;
+}
+INPUT:not(:-webkit-autofill), SELECT:not(:-webkit-autofill), TEXTAREA:not(:-webkit-autofill) {
+  animation-name: onautofillcancel;
+  font-size: 14px;
+}

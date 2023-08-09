@@ -1,0 +1,82 @@
+<div class="search-container">
+  <select [(ngModel)]="selectedColumn" class="search-select">
+    <option value="">All Columns</option>
+    <option *ngFor="let header of headers" [value]="header.fieldName">{{ header.heading }}</option>
+  </select>
+
+  <input
+    type="text"
+    class="px-4 py-2 w-2/5 my-4 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-offset-gray-800"
+    placeholder="Search..."
+    [(ngModel)]="searchTerm"
+    (keyup)="onSearch()"
+  />
+</div>
+
+
+
+<table class="w-full text-sm text-left text-gray-500 ">
+  <thead class="text-xs text-gray-700 bg-red-200">
+    <tr>
+      <!-- Bind the header checkbox to the toggleAllRowCheckboxes function -->
+      <th scope="col" class="p-4">
+        <div class="flex items-center">
+          <input
+            id="checkbox-all-search"
+            type="checkbox"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            [(ngModel)]="isHeaderCheckboxChecked"
+            (change)="toggleAllRowCheckboxes()"
+          >
+          <label for="checkbox-all-search" class="sr-only">checkbox</label>
+        </div>
+      </th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-[14px] text-gray-500 uppercase tracking-wider">Sr</th>
+
+      <th
+        *ngFor="let header of headers"
+        scope="col"
+        class="px-6 py-3">
+        <span>{{ header.heading }}</span>
+
+        <span>
+          <!-- Step 3: Add click event to call sortByField function -->
+          <i class="pi pi-sort-alt mx-2" (click)="sortByField(header.fieldName)"></i>
+        </span>
+      </th>
+      <th scope="col" class="px-6 py-3">
+        Action
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data | datatableFilter: searchTerm : headers : selectedColumn; let sr = index"
+    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <td class="w-4 p-4">
+        <div class="flex items-center">
+          <!-- Step 2: Bind the row checkbox to the isChecked property -->
+          <input
+          id="checkbox-table-{{ sr }}"
+          type="checkbox"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          [(ngModel)]="item.isChecked"
+          (change)="isHeaderCheckboxChecked = areAllRowCheckboxesChecked()"
+        >
+        <label for="checkbox-table-{{ sr }}" class="sr-only">checkbox</label>
+        </div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ sr + 1 }}</td>
+
+      <td   (click)="onRowClick(item)" *ngFor="let field of headers" class="px-6 text-[12px] py-4 whitespace-nowrap">
+        {{ item[field.fieldName] }}
+      </td>
+      <td class="px-6 py-4">
+        <button>
+          <i class="pi pi-chevron-down"  ></i>
+        <app-menu-panel #panel [items]="items"></app-menu-panel>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

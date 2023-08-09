@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { ItemsRoutingModule } from './items-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ComponentsModule } from 'src/app/components/component.module';
+import { ItemCreationComponent } from './item-creation/item-creation.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    ItemCreationComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    ItemsRoutingModule
+    ItemsRoutingModule,
+    ComponentsModule
   ]
 })
 export class ItemsModule { }

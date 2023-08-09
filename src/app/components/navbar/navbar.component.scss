@@ -1,0 +1,22 @@
+.separator {
+  height: 10px; /* Adjust the height as needed */
+  width: 1px; /* Adjust the width as needed */
+  background-color: #C4C4C4; /* Adjust the color as needed */
+  margin: 0 6px; /* Adjust the margin as needed */
+}
+
+/* Add this CSS in your global CSS file or in the component's CSS file */
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Adjust the z-index as needed to ensure it doesn't overlap other content */
+}
+
+#dropdownAvatar {
+  position: absolute;
+  top: 55%;
+  right: 18px;
+  z-index: 50;
+}

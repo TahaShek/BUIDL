@@ -1,0 +1,21 @@
+.p-dropdown {
+  background: #f2f2f2 !important;
+  border: 1px solid #ced4da;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+  border-radius: 3px;
+}
+.p-dropdown .p-dropdown-label {
+  background: transparent;
+  border: 0 none;
+  font-size: 12px !important;
+}
+
+.p-dropdown-item {
+  cursor: pointer;
+  font-weight: 400;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  font-size: 12px;
+}

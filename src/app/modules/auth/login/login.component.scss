@@ -1,0 +1,34 @@
+@media (max-width: 1024px) {
+  .max-w-md {
+    margin: 0 auto;
+  }
+}
+.invalid {
+  border-color: red;
+}
+
+
+.validation-message {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.validation-message.show {
+  opacity: 1;
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.color{
+  color: red;
+}

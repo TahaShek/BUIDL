@@ -12,6 +12,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  // [x: string]: any;
   isLoggedIn$!: Observable<boolean>;
   isLoggedIn!: boolean;
 

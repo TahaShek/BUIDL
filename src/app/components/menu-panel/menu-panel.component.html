@@ -1,0 +1,11 @@
+<mat-menu #menu="matMenu" class="">
+  <ng-container *ngFor="let item of items">
+    <a class=" " mat-menu-item (click)="item.action && item.action(item)">
+      <span class="menu-item-content">
+        <span *ngIf="item.src" class="icon"><i class="{{ item.src }}"></i></span>
+        <span class="label">{{ item.label }}</span>
+      </span>
+    </a>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-menu>

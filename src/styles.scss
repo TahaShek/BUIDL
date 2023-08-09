@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body{
+  background-color: #F9FAFA;
+}
+.pi {
+  font-size: 16px !important;
+}
+.pi {
+  font-family: 'primeicons';
+  speak: none;
+  font-style: normal;
+  font-weight: 900 !important;
+  font-feature-settings: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
