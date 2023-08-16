@@ -1,9 +1,11 @@
 <div class="horizontalScroll">
+
   <div class="flex">
     <div class="flex">
       <ng-container *ngFor="let tab of componentData; let index = index">
         <div
-          class="px-2  py-2  w-48 flex text-center   cursor-pointer text-black  {{
+          class="px-2  py-2  w-48 flex text-center   cursor-pointer text-black
+           {{
             activeTab === tab.title
               ? 'border-b-2 border-blue-500 duration-300 bg-red-100'
               : ''

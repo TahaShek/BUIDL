@@ -13,8 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
-import { RouterModule,Routes } from '@angular/router';
-import { BreadcrumbModule } from 'xng-breadcrumb';
+import { RouterModule, Routes } from '@angular/router';
 import { InputComponentComponent } from './input-component/input-component.component';
 import { ClickOutsideDirective } from '../directive/clickOutside.directive';
 import { DataTableFilterPipe } from '../pipes/dataTablefilter.pipe';
@@ -34,33 +33,31 @@ import { DropdownComponent } from './dropdown/dropdown/dropdown.component';
     MatIconModule,
     MatMenuModule,
     MatTooltipModule,
-    BreadcrumbModule
-
   ],
   declarations: [
     DataTableFilterPipe,
-  NavbarComponent,
-  CustomDropdownComponent,
-  DatatableComponent,
-  SidebarComponent,
-  DynamicComponentComponent,
-  InputComponentComponent,
-  ClickOutsideDirective,
-  TabBarComponent,
-  MenuPanelComponent,
-  DropdownComponent
+    NavbarComponent,
+    CustomDropdownComponent,
+    DatatableComponent,
+    SidebarComponent,
+    DynamicComponentComponent,
+    InputComponentComponent,
+    ClickOutsideDirective,
+    TabBarComponent,
+    MenuPanelComponent,
+    DropdownComponent,
   ],
 
   exports: [
-  NavbarComponent,
-  CustomDropdownComponent,
-  DatatableComponent,
-  SidebarComponent,
-  DynamicComponentComponent,
-  InputComponentComponent,
-  TabBarComponent,
-  MenuPanelComponent,
-  DropdownComponent
+    NavbarComponent,
+    CustomDropdownComponent,
+    DatatableComponent,
+    SidebarComponent,
+    DynamicComponentComponent,
+    InputComponentComponent,
+    TabBarComponent,
+    MenuPanelComponent,
+    DropdownComponent,
   ],
 })
 export class ComponentsModule {}

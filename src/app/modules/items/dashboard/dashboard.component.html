@@ -1,6 +1,6 @@
+<!--
 
-
-  <app-datatable [headers]="headers" [data]="data" (rowClick)="onRowClick($event)" (menuOpen)="openMenu($event)"></app-datatable>
+  <app-datatable [headers]="headers" [data]="data" (rowClick)="onRowClick($event)" ></app-datatable>
 
 <div *ngIf="menuopen">
          <div
@@ -24,5 +24,10 @@
        </div>
 </div>
 
+ -->
 
+<form [formGroup]="amisForm" (ngSubmit)="submitForm()" >
 
+ <app-input-component [label]="'Name'" [type]="'date'" formControlName="name"></app-input-component>
+ <button type="submit">submit</button>
+</form>

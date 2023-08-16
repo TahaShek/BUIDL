@@ -20,7 +20,7 @@ export class ComponentDataService {
   }
 
   getComponentData(): Observable<{ title: string, routerLink?: string, src?: string }[]> {
-    return new BehaviorSubject(this.componentData); // Wrap the componentData in a BehaviorSubject and return it
+    return new BehaviorSubject(this.componentData); //
   }
 
   pushToComponentData(data: { title: string, routerLink?: string, src?: string }[]): void {

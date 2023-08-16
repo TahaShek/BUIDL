@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter ,} from '@angular/core';
 import { DataTableFilterPipe } from 'src/app/pipes/dataTablefilter.pipe';
-import { Select, initTE } from "tw-elements";
+import { SelectItem } from 'primeng/api';
 
 
 
@@ -17,14 +17,9 @@ export interface DataTableHeader {
 
 })
 export class DatatableComponent implements OnInit {
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+
   @Input() headers!: DataTableHeader[];
   @Input() data!: any[];
-  @Output() menuOpen = new EventEmitter<any>();
   @Output() rowClick = new EventEmitter<any>();
   items = [
     {name: 'One'}
@@ -40,11 +35,21 @@ export class DatatableComponent implements OnInit {
   selectedHeader: DataTableHeader | null = null;
   value: boolean = true;
   selectedField!: string;
+  dropdownOptions: SelectItem[] = [];
+
 
   constructor() {}
+
+
   ngOnInit(): void {
-    initTE({ Select});
-    console.log('sd')
+    // Populate dropdownOptions based on your headers data
+    this.dropdownOptions = [
+      { value: '', label: 'All Columns (Global Search)' }, // Global search option
+      ...this.headers.map((header) => ({
+        value: header.fieldName,
+        label: header.heading,
+      })),
+    ];
 
   }
 
@@ -82,30 +87,18 @@ export class DatatableComponent implements OnInit {
     return this.data.every((item) => item.isChecked);
   }
 
-  openMenu() {
-    this.value = !this.value; // Toggle the value here
-    this.menuOpen.emit(this.value);
-  }
+
 
   onRowClick(rowData: any) {
     this.rowClick.emit(rowData);
-
-
   }
 
-  onSearch() {
-    console.log('Search Term:', this.searchTerm);
-    console.log('Selected Column:', this.selectedColumn);
-  }
   onRowDoubleClick(item: any, columnIndex: number) {
     this.selectedRowData = { ...item };
     this.selectedField = this.headers[columnIndex].fieldName;
     this.isEditing = true;
   }
 
-  // onDropdownItemClick(field: string) {
-  //   this.selectedColumn = field; // Update the selectedColumn with the clicked field
-  // }
 
 }
 

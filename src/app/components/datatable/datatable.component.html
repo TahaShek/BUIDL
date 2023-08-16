@@ -1,15 +1,24 @@
 <div class="search-container">
-  <select [(ngModel)]="selectedColumn" class="search-select">
+  <!-- <select [(ngModel)]="selectedColumn" class="search-select">
     <option value="">All Columns</option>
     <option *ngFor="let header of headers" [value]="header.fieldName">{{ header.heading }}</option>
-  </select>
+  </select> -->
+
+
+  <p-dropdown
+  [(ngModel)]="selectedColumn"
+  [options]="dropdownOptions"
+  optionLabel="label"
+  optionValue="value"
+  placeholder="All Columns"
+></p-dropdown>
+
 
   <input
     type="text"
     class="px-4 py-2 w-2/5 my-4 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-offset-gray-800"
     placeholder="Search..."
     [(ngModel)]="searchTerm"
-    (keyup)="onSearch()"
   />
 </div>
 

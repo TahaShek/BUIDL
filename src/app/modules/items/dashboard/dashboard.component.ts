@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  Dropdown,
-  Ripple,
-  initTE,
-} from "tw-elements";
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 export interface DataTableHeader {
   fieldName: string; // The actual property name in the data
   heading: string; // The name shown in the UI as the table heading
@@ -17,8 +14,7 @@ export interface DataTableHeader {
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
-  menuopen!:boolean
+  amisForm:FormGroup|any
   headers: DataTableHeader[] = [
     { fieldName: 'Name', heading: 'Full Name' },
     { fieldName: 'Age', heading: 'Age' },
@@ -35,22 +31,25 @@ export class DashboardComponent implements OnInit {
     { Name: 'Alice Smith', Age: 25, Country: 'Canada', isChecked: false },
     // Add more data rows as needed
   ];
+  constructor(private formBuilder:FormBuilder) { }
+
   ngOnInit(): void {
-    initTE({ Dropdown, Ripple });
+    this.formInit()
 
   }
-// ... (Other code)
-openMenu(value: boolean) {
-  this.menuopen = !value;
-  console.log(this.menuopen)
-}
+  formInit(){
+  this.amisForm=this.formBuilder.group({
+    name:['']
+  })
+  }
 
-closeMenu() {
-  this.menuopen = false;
-}
+
   onRowClick(rowData: any) {
     console.log('Clicked row data:', rowData);
-    // Here, you can perform any action with the row data as needed
   }
 
+
+  submitForm(){
+this.amisForm.value
+  }
 }

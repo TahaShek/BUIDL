@@ -7,6 +7,7 @@
     [type]="type"
     [(ngModel)]="input"
     (ngModelChange)="onchange($event)"
+    (blur)="ontouched()"
     class="appearance-none block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 focus:outline-none sm:text-sm rounded-lg"
   />
 </div>

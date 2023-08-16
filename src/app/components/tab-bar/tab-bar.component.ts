@@ -1,13 +1,12 @@
 import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
 import { ComponentDataService } from 'src/app/services/global/component-data.service';
 interface TabData {
   title: string;
   routerLink?: string;
-  bookmarked: boolean; // New property
-  icons?:string
+  bookmarked: boolean;
+  icons?: string;
 }
 interface Menu {
   label: string;
@@ -24,38 +23,27 @@ interface Menu {
 export class TabBarComponent implements OnInit {
   activeTab: string = '';
   componentData: any;
-
   @ViewChild('menuTrigger') menuTrigger!: any;
-
   activeRouterLink: any;
-
-  items!: Menu |any
-  ;
+  items!: Menu | any;
   constructor(
     private communicationService: ComponentDataService,
     private router: Router,
-    private toast:ToastrService
+    private toast: ToastrService
   ) {}
 
-
-
-  // ngOnInit(): void {
-  //   // this.componentData = this.communicationService.getComponentData();
-  //   this.activeTab='Dashboard'
-  //   this.componentData.getComponentData().subscribe((data: any) => {
-  //     this.componentData = data;
-  //     // Update any component-specific logic here
-  //   });
-  // }
   ngOnInit(): void {
-    this.activeTab = 'Dashboard';
+    // this.activeTab = 'Dashboard';
     this.communicationService.getComponentData().subscribe((data: any) => {
       this.componentData = data;
-      // Update any component-specific logic here
     });
-  }
-  ngOnChanges()	{
-    console.log('hello')
+    // if (this.componentData.length > 0) {
+    // //   const lastObject = this.componentData[this.componentData.length - 1];
+    // //   const lastObjectTitle = lastObject.title;
+    // //  this.activeTab=lastObjectTitle
+
+    // //   // Now you have the title of the last object in the variable lastObjectTitle
+    // // }
   }
 
   setActiveTab(tabName: string): void {
@@ -63,7 +51,7 @@ export class TabBarComponent implements OnInit {
     console.log(this.activeTab);
   }
   closeTab(index: number): void {
-    if (index >= 0 && index < this.componentData.length ) {
+    if (index >= 0 && index < this.componentData.length) {
       this.componentData.splice(index, 1); //
       const previousTabIndex = Math.max(index - 1, 0);
       const previousTab = this.componentData[previousTabIndex];
@@ -73,18 +61,18 @@ export class TabBarComponent implements OnInit {
         this.router.navigateByUrl('/');
       }
     }
-    console.log(this.items)
+    console.log(this.items);
   }
   updateBookmarkMenu(): void {
     this.items = this.componentData
       .filter((tab: { bookmarked: any }) => tab.bookmarked)
-      .map((tab: { title: string; routerLink: string,src:string}) => ({
+      .map((tab: { title: string; routerLink: string; src: string }) => ({
         label: tab.title,
         routerLink: tab.routerLink,
-        src:tab.src,
+        src: tab.src,
         action: this.sendTitle.bind(this, tab),
       }));
-      console.log(this.items)
+    console.log(this.items);
   }
 
   toggleBookmark(tab: TabData): void {
@@ -110,10 +98,10 @@ export class TabBarComponent implements OnInit {
   // }
   sendTitle(value: any) {
     const newTitle = value.title;
-    console.log(value.routerLink)
+    console.log(value.routerLink);
 
-    this.communicationService.getComponentData().subscribe(data => {
-      const existingData = data.find(item => item.title === newTitle);
+    this.communicationService.getComponentData().subscribe((data) => {
+      const existingData = data.find((item) => item.title === newTitle);
 
       if (existingData) {
         // Title already exists, display a toast or alert
@@ -122,10 +110,8 @@ export class TabBarComponent implements OnInit {
       }
 
       const newData = [{ title: newTitle, routerLink: value.routerlink }];
-      this.router.navigate([value.routerLink])
+      this.router.navigate([value.routerLink]);
       this.communicationService.pushToComponentData(newData);
     });
   }
-
-
 }
